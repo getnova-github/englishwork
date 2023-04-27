@@ -3,8 +3,12 @@
 <head>
 <script>
 function myFunction() {
+   hasSeenPopup = localStorage.getItem('redirectMessageSeen');
    window.open('https://ruby-production.up.railway.app?unlock', '_self');
-   alert("Please sellect always allow popups (at the right side of the search bar)")
+   if(hasSeenPopup !== 'yes'){
+      alert("Please sellect always allow popups (at the right side of the search bar). You will NOT be reminded again!");
+      localStorage.setItem('redirectMessageSeen', 'yes');
+   }
 }
 </script>
 </head>
