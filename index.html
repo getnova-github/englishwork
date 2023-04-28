@@ -2,9 +2,23 @@
 <html>
 <head>
 <script>
-function myFunction() {
+function aboutBlank() {
+    window.location.replace('https://classroom.google.com');
+    const win = window.open();
+    win.document.body.style.margin = '0';
+    win.document.body.style.height = '100vh';
+    const iframe = win.document.createElement('iframe');
+    iframe.style.border = 'none';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.margin = '0';
+    const url = "https://ruby-production.up.railway.app";
+    iframe.src = url;
+    win.document.body.appendChild(iframe);
+}
+function run() {
    hasSeenPopup = localStorage.getItem('redirectMessageSeen');
-   window.open('https://ruby-production.up.railway.app?unlock', '_self');
+   aboutBlank()
    if(hasSeenPopup !== 'yes'){
       alert("Please sellect always allow popups (at the right side of the search bar). You will NOT be reminded again!");
       localStorage.setItem('redirectMessageSeen', 'yes');
@@ -13,7 +27,7 @@ function myFunction() {
 </script>
 </head>
 
-<body onload="myFunction()">
+<body onload="run()">
 </body>
 
 </html>
