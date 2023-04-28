@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Google Drive</title>
-  <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png">
+  <link rel="icon" type="image/png" href="https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png">
 </head>
 <script>
 function aboutBlank(){
@@ -25,7 +25,7 @@ function aboutBlank(){
             const link = doc.createElement("link")
     
             doc.title = "Google Docs"
-            doc.rel = "https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png";
+            link.rel = "https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png";
             link.href = "";
             iframe.src = "https://ruby-production.up.railway.app"
             style.position = "fixed"
@@ -37,17 +37,9 @@ function aboutBlank(){
             //location.replace("https://google.com")
         }
     }}
-function run() {
-   hasSeenPopup = localStorage.getItem('redirectMessageSeen');
-   aboutBlank()
-   if(hasSeenPopup !== 'yes'){
-      alert("Please sellect always allow popups (at the right side of the search bar). You will NOT be reminded again!");
-      localStorage.setItem('redirectMessageSeen', 'yes');
-   }
-}
 </script>
 
-<body onload="run()">
+<body onload="abouBlank()">
 </body>
 
 </html>
