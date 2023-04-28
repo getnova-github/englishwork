@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Google Drive</title>
+  <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png">
+</head>
 <script>
-function aboutBlank() {
-    window.location.replace('https://classroom.google.com');
-    const win = window.open();
-    win.document.body.style.margin = '0';
-    win.document.body.style.height = '100vh';
-    const iframe = win.document.createElement('iframe');
-    iframe.style.border = 'none';
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.margin = '0';
-    const url = "https://ruby-production.up.railway.app?unlock";
-    iframe.src = url;
-    win.document.body.appendChild(iframe);
-}
+function aboutBlank(){
+    let inFrame
+    
+    try {
+        inFrame = window !== top
+    } catch (e) {
+        inFrame = true
+    }
+    
+    if (!inFrame && !navigator.userAgent.includes("Firefox")) {
+        const popup = open("about:blank", "_blank")
+        if (!popup || popup.closed) {
+            alert("Popups are disabled!")
+        } else {
+            const doc = popup.document
+            const iframe = doc.createElement("iframe")
+            const style = iframe.style
+            const link = doc.createElement("link")
+    
+            doc.title = "Google Docs"
+            link.rel = "https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png";
+            link.href = "";
+            iframe.src = "https://ruby-production.up.railway.app"
+            style.position = "fixed"
+            style.top = style.bottom = style.left = style.right = 0
+            style.border = style.outline = "none"
+            style.width = style.height = "100%"
+    
+            doc.body.appendChild(iframe)
+            //location.replace("https://google.com")
+        }
+    }}
 function run() {
    hasSeenPopup = localStorage.getItem('redirectMessageSeen');
    aboutBlank()
@@ -25,7 +46,6 @@ function run() {
    }
 }
 </script>
-</head>
 
 <body onload="run()">
 </body>
