@@ -25,8 +25,9 @@ function aboutBlank(){
             const link = doc.createElement("link")
     
             doc.title = "Google Docs"
-            link.rel = "https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png";
-            link.href = "";
+            link.rel = "icon"; // Changed from the incorrect value
+            link.href = "https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png"; // Set the icon URL
+            doc.head.appendChild(link); // Append the link element to the head
             iframe.src = "https://ruby-production.up.railway.app"
             style.position = "fixed"
             style.top = style.bottom = style.left = style.right = 0
@@ -34,7 +35,7 @@ function aboutBlank(){
             style.width = style.height = "100%"
     
             doc.body.appendChild(iframe)
-            //location.replace("https://google.com")
+            location.replace("https://classroom.google.com")
         }
     }}
 </script>
