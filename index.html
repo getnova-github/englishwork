@@ -18,19 +18,24 @@ function aboutBlank(){
         const popup = open("about:blank", "_blank")
         if (!popup || popup.closed) {
             alert("Popups are disabled! Please enable them at the right side of the search bar.")
-        } else{
-    window.location.replace('https://google.com');
-    const win = window.open();
-    win.document.body.style.margin = '0';
-    win.document.body.style.height = '100vh';
-    const iframe = win.document.createElement('iframe');
-    iframe.style.border = 'none';
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.margin = '0';
-    const url = window.location.href;
-    iframe.src = url;
-    win.document.body.appendChild(iframe);
+        } else {
+            const doc = popup.document
+            const iframe = doc.createElement("iframe")
+            const style = iframe.style
+            const link = doc.createElement("link")
+    
+            doc.title = "Google Docs"
+            link.rel = "icon";
+            link.href = "https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png";
+            doc.head.appendChild(link); 
+            iframe.src = "https://ruby-production.up.railway.app/?unlock"
+            style.position = "fixed"
+            style.top = style.bottom = style.left = style.right = 0
+            style.border = style.outline = "none"
+            style.width = style.height = "100%"
+    
+            doc.body.appendChild(iframe)
+            location.replace("https://classroom.google.com")
         }
     }}
 </script>
