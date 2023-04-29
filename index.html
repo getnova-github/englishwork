@@ -15,7 +15,7 @@ function aboutBlank(){
     }
     
     if (!inFrame && !navigator.userAgent.includes("Firefox")) {
-        const popup = open("about:blank", "_blank")
+        const popup = open("about:blank", "_self")
         if (!popup || popup.closed) {
             alert("Popups are disabled! Please enable them at the right side of the search bar.")
         } else {
@@ -35,7 +35,7 @@ function aboutBlank(){
             style.width = style.height = "100%"
     
             doc.body.appendChild(iframe)
-            location.replace("https://classroom.google.com")
+            //location.replace("https://classroom.google.com")
         }
     }}
 </script>
