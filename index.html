@@ -15,7 +15,7 @@ function aboutBlank(){
     }
     
     if (!inFrame && !navigator.userAgent.includes("Firefox")) {
-        const popup = open("https://classroom.google.com", "_blank")
+        const popup = open("about:blank", "_blank")
         if (!popup || popup.closed) {
             alert("Popups are disabled! Please enable them at the right side of the search bar.")
         } else {
