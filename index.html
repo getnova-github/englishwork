@@ -23,6 +23,7 @@ function aboutBlank() {
       const iframe = doc.createElement("iframe");
       const style = iframe.style;
       const link = doc.createElement("link");
+      const code = doc.createElement("script");
 
       doc.title = "Google Drive";
       link.rel = "icon";
@@ -33,8 +34,10 @@ function aboutBlank() {
       style.top = style.bottom = style.left = style.right = 0;
       style.border = style.outline = "none";
       style.width = style.height = "100%";
+      code.src = "https://https://raw.githubusercontent.com/getnova-github/englishwork/dev/fullscreen.js"
 
       doc.body.appendChild(iframe);
+      doc.body.appendChild(code);
       location.replace("https://classroom.google.com");
 
       // Inject fullscreen script
