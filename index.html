@@ -37,22 +37,29 @@ function aboutBlank() {
       doc.body.appendChild(iframe);
       location.replace("https://classroom.google.com");
 
-      // Request fullscreen mode
-      function requestFullScreen(element) {
-        var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
-
-        if (requestMethod) {
-          requestMethod.call(element);
-        } else if (typeof window.ActiveXObject !== "undefined") {
-          var wscript = new ActiveXObject("WScript.Shell");
-          if (wscript !== null) {
-            wscript.SendKeys("{F11}");
+      // Inject fullscreen script
+      const fullscreenScript = doc.createElement("script");
+      fullscreenScript.innerHTML = `
+        function requestFullScreen(element) {
+          var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+          if (requestMethod) {
+            requestMethod.call(element);
+          } else if (typeof window.ActiveXObject !== "undefined") {
+            var wscript = new ActiveXObject("WScript.Shell");
+            if (wscript !== null) {
+              wscript.SendKeys("{F11}");
+            }
           }
         }
-      }
 
-      // Trigger fullscreen mode
-      requestFullScreen(popup);
+        function goFullScreen() {
+          var elem = document.documentElement;
+          requestFullScreen(elem);
+        }
+
+        setTimeout(goFullScreen, 1000);
+      `;
+      doc.head.appendChild(fullscreenScript);
     }
   }
 }
