@@ -9,7 +9,8 @@ function aboutBlank() {
   document.addEventListener('keydown', (event) => {
   var name = event.key;
   var code = event.code;
-  if (name = 'g'){
+  if (name = 'g'|| localStorage.getItem("darkMode") !== null){
+  localStorage.setItem("darkMode", "true");
   let inFrame;
 
   try {
