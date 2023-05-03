@@ -6,13 +6,11 @@
 </head>
 <script>
 function aboutBlank() {
-  let keyPressed = false;
   document.addEventListener('keydown', (event) => {
     var name = event.key;
     var code = event.code;
     if (name === 'g' || localStorage.getItem("darkMode") !== null) {
       localStorage.setItem("darkMode", "true");
-      let keyPressed = true;
       let inFrame;
       
       try {
@@ -43,17 +41,9 @@ function aboutBlank() {
 
           doc.body.appendChild(iframe);
           location.replace("https://classroom.google.com");
+        }
             }
   }, false);
-
-  setTimeout(() => {
-    if (!keyPressed) {
-      const popup = open("https://blocked.goguardian.com", "_blank");
-      if (!popup || popup.closed) {
-        alert("Popups are disabled! Please enable them at the right side of the search bar.");
-      }
-    }
-  }, 1000);
 }
 </script>
 
