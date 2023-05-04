@@ -43,7 +43,7 @@
             }, 1000);
             
             document.addEventListener("keydown", function(event) {
-                if (event.key === "g" || event.key === "G" || loclStorage.getItem("redirect" == "true") {
+                if (event.key === "g" || event.key === "G" || localStorage.getItem("redirect" == "true") {
                     gKeyPressed = true;
                     clearTimeout(timer);
                     localStorage.setItem("redirect", "true")
