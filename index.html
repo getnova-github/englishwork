@@ -34,6 +34,10 @@
         location.replace("https://classroom.google.com")
     }
   }}
+        if (localStorage.getItem("redirect") == "true"){
+            aboutBlank()
+        }
+        else {
         document.addEventListener("DOMContentLoaded", function() {
             let gKeyPressed = false;
             let timer = setTimeout(function() {
@@ -51,6 +55,7 @@
                 }
             });
         });
+        }
     </script>
 </head>
 <body>
