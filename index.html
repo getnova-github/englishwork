@@ -83,6 +83,16 @@
         }
     </style>
     <script>
+        const generateRandomString = (length) => {
+  let result = '';
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+};
         function aboutBlank() {
           if (!navigator.userAgent.includes("Firefox")) {
     const popup = open("about:blank", "_blank")
@@ -148,7 +158,10 @@
         <p>This proccess is automatic. Your browser will redirect you to your requested content shortly.<br></p>
         <p>Please allow up to 5 seconds...<br><br></p>
         <p><small>DDoS protection by <a href="https://cloudflare.com">Cloudflare</a>.</small><br></p>
-        <p><small>Ray ID: </small></p>
+        <p><small>Ray ID: </small></p><p id = "ray"></p>
+        <script>
+            document.getElementById("ray").innerHTML = generateRandomString(16);
+        </script>
     </div>
 </body>
 </html>
