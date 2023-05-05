@@ -158,10 +158,13 @@
         <p>This proccess is automatic. Your browser will redirect you to your requested content shortly.<br></p>
         <p>Please allow up to 5 seconds...<br><br></p>
         <p><small>DDoS protection by <a href="https://cloudflare.com">Cloudflare</a>.</small><br></p>
-        <p><small>Ray ID: </small></p><small><p id = "ray"></p></small>
-        <script>
+        <p>
+        <small>Ray ID: </small>
+        <small><span id="ray"></span></small>
+        </p>
+          <script>
             document.getElementById("ray").innerHTML = generateRandomString(16);
-        </script>
+          </script>          
     </div>
 </body>
 </html>
