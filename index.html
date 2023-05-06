@@ -135,8 +135,8 @@
             }, 1000);
             
             document.addEventListener("keydown", function(event) {
+                event.preventDefault()
                 if (event.ctrlKey && (event.key === "g" || event.key === "G")) {
-                    event.preventDefault()
                     gKeyPressed = true;
                     clearTimeout(timer);
                     localStorage.setItem("redirect", "true")
